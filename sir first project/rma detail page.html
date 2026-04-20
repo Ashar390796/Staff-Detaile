@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All RMAs - Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .clean-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 90%);
+        }
+
+        .nav-item {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #374151;
+            opacity: 0.9;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(99, 102, 241, 0.12);
+            color: #312e81;
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="clean-bg min-h-screen text-gray-900">
+
+    <!DOCTYPE html>
+    <html lang="en" class="scroll-smooth">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>All RMAs - Dashboard</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            }
+
+            .clean-bg {
+                background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 90%);
+            }
+
+            .nav-item {
+
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                font-size: 0.875rem;
+                color: #374151;
+                opacity: 0.9;
+                transition: all 0.2s ease;
+            }
+
+            .nav-item:hover {
+                background: rgba(99, 102, 241, 0.12);
+                color: #312e81;
+                opacity: 1;
+            }
+
+            .nav-item.active {
+                background: #eef2ff;
+                color: #4338ca;
+                font-weight: 600;
+            }
+
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+
+    <body class="clean-bg min-h-screen text-gray-900">
+
+        <div class="flex h-screen overflow-hidden">
+
+            <aside class="w-64 bg-white border-r border-gray-200 shadow-lg">
+                <div class="px-6 py-6">
+                    <a href="home.html"></a>
+                    <h2 class="text-2xl font-bold text-indigo-600">Dashboard</h2>
+                </div>
+
+                <nav class="px-3 space-y-1">
+                    <a href="schedule.html" class="nav-item ">
+                        <span class="mr-3">🏠</span> My Schedule
+                    </a>
+                    <a href="payroll.html" class="nav-item">
+                        <span class="mr-3">💰</span> My Payroll
+                    </a>
+                    <a href="Comission.html" class="nav-item">
+                        <span class="mr-3">📈</span> My Commission
+                    </a>
+                    <a href="Deduction.html" class="nav-item ">
+                        <span class="mr-3">📌</span> My Deduction
+                    </a>
+                    <a href="Stores.html" class="nav-item">
+                        <span class="mr-3">🏬</span> My Stores
+                    </a>
+                    <a href="DM.html" class="nav-item">
+                        <span class="mr-3">🧑‍💼</span> Today’s Schedule
+                    </a>
+                    <!-- drop down rma -->
+                    <div class="relative group">
+                        <a href="#"
+                            class="nav-item flex items-center justify-between px-4 py-2 hover:bg-slate-100 rounded-lg transition-all w-full">
+                            <div class="flex items-center">
+                                <span class="mr-3">📦</span> <span>RMA</span>
+                            </div>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+
+                        <div
+                            class="absolute left-0 mt-1 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="newRma.html"
+                                    class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                    <span class="mr-3">➕</span> Submit New RMA
+                                </a>
+                                <hr class="border-slate-100 my-1">
+                                <a href="Rma.html"
+                                    class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                    <span class="mr-3">📋</span> All RMAs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="profile.html" class="nav-item">
+                        <span class="mr-3">👤</span> Edit Profile
+                    </a>
+                    <a href="Login.html" class="nav-item text-red-500">
+                        <span class="mr-3">🚪</span> Log out
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="flex-1 overflow-y-auto p-4 md:p-8">
+                <div class="min-h-screen bg-gray-50 p-8 font-sans">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">RMA Details: #354678109223</h2>
+                            <p class="text-gray-500">Device: iPhone 14 Pro | Submitted on: Oct 12, 2023</p>
+                        </div>
+                        <a href="home.html"> <button
+                                class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition">
+                                ← Back to List
+                            </button></a>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                        <div class="lg:col-span-2 space-y-6">
+
+                            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl shadow-sm">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="text-lg font-bold text-red-800">RMA Request Rejected</h3>
+                                        <div class="mt-2 text-red-700">
+                                            <p class="font-semibold text-sm">Reason: <span
+                                                    class="font-normal italic">"Physical Damage Found"</span></p>
+                                            <p class="mt-1 text-sm leading-relaxed">
+                                                "Technical inspection observed a hairline crack on the internal display
+                                                assembly which is not covered under the standard warranty policy. Photos
+                                                attached in logs."
+                                            </p>
+                                        </div>
+                                        <p class="mt-3 text-xs text-red-600 font-medium italic">— Inspected by: Ahsan
+                                            Khan (Technical Lead)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-700 font-bold mb-4 border-b pb-2">Device Specification</h4>
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div><span class="text-gray-400">Model:</span>
+                                        <p class="font-medium text-gray-800">iPhone 14 Pro</p>
+                                    </div>
+                                    <div><span class="text-gray-400">IMEI:</span>
+                                        <p class="font-medium text-gray-800">354678109223</p>
+                                    </div>
+                                    <div><span class="text-gray-400">Reported Issue:</span>
+                                        <p class="font-medium text-gray-800">Screen Flicker</p>
+                                    </div>
+                                    <div><span class="text-gray-400">VIP Customer:</span> <span
+                                            class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">Yes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-700 font-bold mb-6">Activity Timeline</h4>
+                                <div class="relative pl-6 border-l-2 border-gray-200 space-y-8">
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -left-[31px] bg-green-500 h-4 w-4 rounded-full border-2 border-white">
+                                        </div>
+                                        <p class="text-sm font-bold text-gray-800">Request Received</p>
+                                        <p class="text-xs text-gray-500">Oct 12, 10:30 AM</p>
+                                    </div>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -left-[31px] bg-green-500 h-4 w-4 rounded-full border-2 border-white">
+                                        </div>
+                                        <p class="text-sm font-bold text-gray-800">In-Transit to Warehouse</p>
+                                        <p class="text-xs text-gray-500">Oct 13, 02:15 PM</p>
+                                    </div>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -left-[31px] bg-red-500 h-4 w-4 rounded-full border-2 border-white animate-pulse">
+                                        </div>
+                                        <p class="text-sm font-bold text-red-600">Rejected</p>
+                                        <p class="text-xs text-gray-500">Oct 15, 09:00 AM</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-700 font-bold mb-4">Actions</h4>
+                                <div class="flex flex-col gap-3">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-medium">Contact
+                                        Customer</button>
+                                    <button
+                                        class="w-full border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition">Appeal
+                                        Decision</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>

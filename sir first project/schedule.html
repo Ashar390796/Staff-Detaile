@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Time Sheet</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen text-gray-900">
+
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 shadow-lg">
+            <div class="px-6 py-5 text-2xl font-bold text-indigo-600">
+                <a href="home.html"> Dashboard</a>
+            </div>
+
+            <nav class="px-3 space-y-1">
+                <a href="schedule.html" class="nav-item active">
+                    <span class="mr-3">🏠</span> My Schedule
+                </a>
+
+                <a href="payroll.html" class="nav-item">
+                    <span class="mr-3">💰</span> My Payroll
+                </a>
+
+                <a href="Comission.html" class="nav-item">
+                    <span class="mr-3">📈</span> My Commission
+                </a>
+
+                <a href="Deduction.html" class="nav-item">
+                    <span class="mr-3">📌</span> My Deduction
+                </a>
+
+                <a href="Stores.html" class="nav-item">
+                    <span class="mr-3">🏬</span> My Stores
+                </a>
+
+                <a href="DM.html" class="nav-item">
+                    <span class="mr-3">🧑‍💼</span> Today’s Schedule
+                </a>
+
+                <!-- drop down rma -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-all outline-none">
+                        <div class="flex items-center">
+                            <span class="mr-3 text-lg">📦</span>
+                            <span>RMA</span>
+                        </div>
+                         <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+                    </button>
+
+                    <div
+                        class="absolute left-0 w-full mt-1 origin-top-right bg-white border border-gray-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                        <div class="py-1">
+                            <a href="newRma.html"
+                                class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                                <span class="mr-3">➕</span> Submit New RMA
+                            </a>
+                            <div class="border-t border-gray-100"></div>
+                            <a href="Rma.html"
+                                class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                                <span class="mr-3">📋</span> All RMAs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="profile.html" class="nav-item">
+                    <span class="mr-3">👤</span> Edit Profile
+                </a>
+
+                <a href="Login.html" class="nav-item text-red-500">
+                    <span class="mr-3">🚪</span> Log out
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div class="max-w-7xl mx-auto space-y-6">
+
+                <!-- Header -->
+                <div
+                    class="bg-white rounded-xl shadow p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900">My Schedule</h1>
+                        <p class="text-gray-500 mt-1">Weekly Timesheet Overview</p>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <span class="text-sm px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-medium">
+                            📅 02-Feb-2026
+                        </span>
+                        <button
+                            class="px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition">
+                            Export PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-xl shadow p-5">
+                        <p class="text-sm text-gray-500">Total Hours</p>
+                        <h2 class="text-2xl font-bold">45.5</h2>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-5">
+                        <p class="text-sm text-gray-500">Overtime</p>
+                        <h2 class="text-2xl font-bold text-yellow-600">2.0</h2>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-5">
+                        <p class="text-sm text-gray-500">Working Days</p>
+                        <h2 class="text-2xl font-bold">6</h2>
+                    </div>
+                </div>
+
+                <!-- Date Filters -->
+                <div class="bg-white rounded-xl shadow p-5 flex flex-wrap items-center justify-between gap-6">
+                    <h3 class="font-medium text-gray-700">Select Date Range</h3>
+
+                    <div class="flex gap-4 flex-wrap">
+                        <div class="flex flex-col">
+                            <label class="text-sm text-gray-500">Start Date</label>
+                            <input type="date"
+                                class="px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="text-sm text-gray-500">End Date</label>
+                            <input type="date"
+                                class="px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+                        </div>
+
+                        <button
+                            class="px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="bg-white rounded-xl shadow border overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm ">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">02-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">03-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">04-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">05-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tyolr</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">06-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">07-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">09-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">10-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">11-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Tyolor </td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="min-w-full text-sm my-8">
+                            <thead class="bg-indigo-50 sticky top-0">
+                                <tr>
+                                    <th colspan="3" class="th-center">12-Feb-2026</th>
+                                    <th class="th">Store</th>
+                                    <th class="th">Type</th>
+
+                                </tr>
+
+                                <tr class="bg-gray-50">
+
+                                    <th class="sub-th">Start</th>
+                                    <th class="sub-th">End</th>
+                                    <th class="sub-th bg-yellow-100">Hours</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-indigo-50 transition">
+                                    <td class="td-center">10:00 AM</td>
+                                    <td class="td-center">7:00 PM</td>
+                                    <td class="td-center">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                                            9.0
+                                        </span>
+                                    </td>
+                                    <td class="td">Cold Spring</td>
+                                    <td class="td font-medium">Working Hours</td>
+
+                                </tr>
+
+                                <tr class="hover:bg-indigo-50 transition">
+
+                                    <td class="td-center">-</td>
+                                    <td class="td-center">-</td>
+                                    <td class="td-center text-gray-400">0.0</td>
+                                    <td class="td">Taylor</td>
+                                    <td class="td font-medium">Overtime</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <style>
+        .nav-item {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #374151;
+            opacity: 0.9;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(99, 102, 241, 0.12);
+            color: #312e81;
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        .th,
+        .th-center {
+            padding: 1rem;
+            font-weight: 600;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .th-center {
+            text-align: center;
+        }
+
+        .sub-th {
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .td,
+        .td-center {
+            padding: 0.75rem;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .td-center {
+            text-align: center;
+        }
+    </style>
+
+</body>
+
+</html>
