@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Time Sheet</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      color: #374151;
+      opacity: 0.9;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover {
+      background: rgba(99, 102, 241, 0.12);
+      color: #312e81;
+      opacity: 1;
+    }
+
+    .nav-item.active {
+      background: #eef2ff;
+      color: #4338ca;
+      font-weight: 600;
+    }
+
+    .th,
+    .th-center {
+      padding: 1rem;
+      font-weight: 600;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .th-center {
+      text-align: center;
+    }
+
+    .sub-th {
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: 500;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .td,
+    .td-center {
+      padding: 0.75rem;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .td-center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen text-gray-900">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-200 shadow-lg">
+      <div class="px-6 py-5 text-2xl font-bold text-indigo-600">
+        <a href="index.html"> Dashboard</a>
+      </div>
+
+      <nav class="px-3 space-y-1">
+        <a href="schedule.html" class="nav-item ">
+          <span class="mr-3">🏠</span> My Schedule
+        </a>
+
+        <a href="payroll.html" class="nav-item active">
+          <span class="mr-3">💰</span> My Payroll
+        </a>
+
+        <a href="Comission.html" class="nav-item">
+          <span class="mr-3">📈</span> My Commission
+        </a>
+
+        <a href="Deduction.html" class="nav-item">
+          <span class="mr-3">📌</span> My Deduction
+        </a>
+
+        <a href="Stores.html" class="nav-item">
+          <span class="mr-3">🏬</span> My Stores
+        </a>
+
+        <a href="DM.html" class="nav-item">
+          <span class="mr-3">🧑‍💼</span> Today’s Schedule
+        </a>
+        <!-- drop down rma -->
+        <div class="relative group">
+          <a href="#"
+            class="nav-item flex items-center justify-between px-4 py-2 hover:bg-slate-100 rounded-lg transition-all w-full">
+            <div class="flex items-center">
+              <span class="mr-3">📦</span> <span>RMA</span>
+            </div>
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+
+          <div
+            class="absolute left-0 mt-1 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div class="py-2">
+              <a href="newRma.html"
+                class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <span class="mr-3">➕</span> Submit New RMA
+              </a>
+              <hr class="border-slate-100 my-1">
+              <a href="Rma.html"
+                class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <span class="mr-3">📋</span> All RMAs
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="profile.html" class="nav-item">
+          <span class="mr-3">👤</span> Edit Profile
+        </a>
+
+        <a href="Login.html" class="nav-item text-red-500 ">
+          <span class="mr-3">🚪</span> Log out
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <div class="bg-gray-50 p-8 min-h-screen">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Payroll Register</h2>
+            <p class="text-gray-500">Employee earnings and deductions overview by location</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-amber-400 text-gray-900">
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">Store
+                    Name</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">
+                    Overtime Hours</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">
+                    Overtime Pay</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">
+                    Commission</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">Gross
+                    Pay</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">
+                    Deductions</th>
+                  <th class="px-6 py-4 font-semibold uppercase text-xs tracking-wider border-b border-amber-500">Net Pay
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Tylor
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$99.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$651.00</td>
+                </tr>
+                <tr class="hover:bg-amber-50 transition-colors">
+                  <td class="px-6 py-4 text-sm font-bold text-gray-900">
+                    <span class="bg-gray-100 px-2 py-1 rounded border border-gray-200 text-xs">Cold Spring
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-700 font-medium">39</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600 font-semibold">$750.00</td>
+                  <td class="px-6 py-4 text-sm text-gray-600">$0.00</td>
+                  <td class="px-6 py-4 text-sm text-red-600">-$95.00</td>
+                  <td class="px-6 py-4 text-sm font-bold text-green-700 bg-green-50/50">$601.00</td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+
+
+</body>
+
+</html>

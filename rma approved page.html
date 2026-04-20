@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All RMAs - Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .clean-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 90%);
+        }
+
+        .nav-item {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #374151;
+            opacity: 0.9;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(99, 102, 241, 0.12);
+            color: #312e81;
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="clean-bg min-h-screen text-gray-900">
+
+    <!DOCTYPE html>
+    <html lang="en" class="scroll-smooth">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>All RMAs - Dashboard</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            }
+
+            .clean-bg {
+                background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 90%);
+            }
+
+            .nav-item {
+             
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                font-size: 0.875rem;
+                color: #374151;
+                opacity: 0.9;
+                transition: all 0.2s ease;
+            }
+
+            .nav-item:hover {
+                background: rgba(99, 102, 241, 0.12);
+                color: #312e81;
+                opacity: 1;
+            }
+
+            .nav-item.active {
+                background: #eef2ff;
+                color: #4338ca;
+                font-weight: 600;
+            }
+
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+
+    <body class="clean-bg min-h-screen text-gray-900">
+
+        <div class="flex h-screen overflow-hidden">
+
+            <aside class="w-64 bg-white border-r border-gray-200 shadow-lg flex flex-col">
+                <div class="px-6 py-6">
+                    <h2 class="text-2xl font-bold text-indigo-600">Dashboard</h2>
+                </div>
+
+                <nav class="px-3 space-y-1 flex-1">
+                    <a href="schedule.html" class="nav-item flex items-center">
+                        <span class="mr-3">🏠</span> My Schedule
+                    </a>
+                    <a href="payroll.html" class="nav-item flex items-center">
+                        <span class="mr-3">💰</span> My Payroll
+                    </a>
+                    <a href="Comission.html" class="nav-item flex items-center">
+                        <span class="mr-3">📈</span> My Commission
+                    </a>
+                    <a href="Deduction.html" class="nav-item active flex items-center">
+                        <span class="mr-3">📌</span> My Deduction
+                    </a>
+                    <a href="Stores.html" class="nav-item flex items-center">
+                        <span class="mr-3">🏬</span> My Stores
+                    </a>
+                    <a href="DM.html" class="nav-item flex items-center">
+                        <span class="mr-3">🧑‍💼</span> Today’s Schedule
+                    </a>
+
+                    <div class="relative group w-full">
+                        <a href="#" class="nav-item flex items-center justify-between w-full">
+                            <div class="flex items-center">
+                                <span class="mr-3">📦</span>
+                                <span>RMA</span>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-400 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+
+                        <div
+                            class="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="newRma.html"
+                                    class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                    <span class="mr-3">➕</span> Submit New RMA
+                                </a>
+                                <hr class="border-slate-100 my-1">
+                                <a href="Rma.html"
+                                    class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                    <span class="mr-3">📋</span> All RMAs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="profile.html" class="nav-item flex items-center">
+                        <span class="mr-3">👤</span> Edit Profile
+                    </a>
+                    <a href="Login.html" class="nav-item text-red-500 flex items-center">
+                        <span class="mr-3">🚪</span> Log out
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="flex-1 overflow-y-auto p-4 md:p-8">
+                <div class="min-h-screen bg-gray-50 p-8 font-sans text-gray-800">
+
+                    <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <h2 class="text-2xl font-bold">RMA Details: #354678109201</h2>
+                                <span
+                                    class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-green-200">Approved</span>
+                            </div>
+                            <p class="text-gray-500 mt-1 italic">Device: iPhone 14 Pro | Warranty Claim: Valid</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                class="bg-white border border-gray-300 hover:bg-gray-50 px-4 py-2 rounded-lg font-medium text-sm transition">Returns
+                                History
+                            </button>
+                            <button
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition shadow-sm">Print
+                                Shipping Label</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                        <div class="lg:col-span-2 space-y-6">
+
+                            <div class="bg-white border border-green-100 rounded-2xl overflow-hidden shadow-sm">
+                                <div class="bg-green-500 p-4 flex items-center gap-3 text-white">
+                                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <h3 class="font-bold text-lg">Warranty Approved</h3>
+                                </div>
+
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-800 font-bold mb-5 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                    </svg>
+                                    Shipping Information
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold uppercase mb-2">Recipient Address</p>
+                                        <p class="text-sm font-medium">John Doe</p>
+                                        <p class="text-sm text-gray-600">Warehouse A, Sector 4, Industrial Area</p>
+                                        <p class="text-sm text-gray-600">Karachi, Pakistan</p>
+                                    </div>
+                                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                                        <p class="text-xs text-indigo-400 font-bold uppercase mb-1">Tracking Number</p>
+                                        <p class="text-lg font-mono font-bold text-indigo-700">#TRK99201</p>
+                                        <a href="#"
+                                            class="text-xs text-indigo-600 underline font-medium hover:text-indigo-800">Track
+                                            on Courier Portal ↗</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+
+                            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-800 font-bold mb-4 text-sm uppercase tracking-tight">Device Summary
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Model</span>
+                                        <span class="font-semibold">iPhone 14 Pro</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">IMEI</span>
+                                        <span class="font-mono text-xs">354678109223</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Bin
+                                            Location</span> <span class="bg-gray-100 px-2 rounded">Bin-A2</span></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                <h4 class="text-gray-800 font-bold mb-6">Process Log</h4>
+                                <div class="space-y-6">
+                                    <div class="flex gap-4">
+                                        <div class="flex flex-col items-center">
+                                            <div
+                                                class="w-3 h-3 bg-green-500 rounded-full outline outline-4 outline-green-100">
+                                            </div>
+                                            <div class="w-0.5 h-10 bg-green-200 mt-1"></div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold">Approved</p>
+                                            <p class="text-xs text-gray-400 italic">Oct 14, 2023</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="flex flex-col items-center">
+                                            <div
+                                                class="w-3 h-3 bg-indigo-500 rounded-full outline outline-4 outline-indigo-100 animate-pulse">
+                                            </div>
+                                            <div class="w-0.5 h-10 bg-gray-100 mt-1"></div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-indigo-600">Replacement Dispatched</p>
+                                            <p class="text-xs text-gray-400 italic">Oct 15, 2023 (In Progress)</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 opacity-40">
+                                        <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                        <div>
+                                            <p class="text-sm font-bold">Delivered</p>
+                                            <p class="text-xs text-gray-400">Estimated: Oct 18, 2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>

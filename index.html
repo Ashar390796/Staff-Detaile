@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - My Schedule</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Heroicons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/dist/heroicons.min.js"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Clean white background with very subtle radial gradient for depth */
+        .clean-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 90%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .clean-bg {
+                background: #0f172a;
+            }
+        }
+
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-item {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #374151;
+            opacity: 0.9;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(99, 102, 241, 0.12);
+            color: #312e81;
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        .th,
+        .th-center {
+            padding: 1rem;
+            font-weight: 600;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .th-center {
+            text-align: center;
+        }
+
+        .sub-th {
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .td,
+        .td-center {
+            padding: 0.75rem;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .td-center {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body class="clean-bg min-h-screen text-gray-900">
+
+    <div class="flex h-screen">
+
+        <!-- Sidebar - more solid white look -->
+        <aside class="w-64 bg-white border-r border-gray-200 shadow-lg">
+            <div class="px-6 py-5 text-2xl font-bold text-indigo-600">
+                <a href="index.html"> Dashboard</a>
+            </div>
+
+            <nav class="px-3 space-y-1">
+                <a href="schedule.html" class="nav-item active">
+                    <span class="mr-3">🏠</span> My Schedule
+                </a>
+
+                <a href="payroll.html" class="nav-item">
+                    <span class="mr-3">💰</span> My Payroll
+                </a>
+
+                <a href="Comission.html" class="nav-item">
+                    <span class="mr-3">📈</span> My Commission
+                </a>
+
+                <a href="Deduction.html" class="nav-item">
+                    <span class="mr-3">📌</span> My Deduction
+                </a>
+
+                <a href="Stores.html" class="nav-item">
+                    <span class="mr-3">🏬</span> My Stores
+                </a>
+
+                <a href="DM.html" class="nav-item">
+                    <span class="mr-3">🧑‍💼</span> Today’s Schedule
+                </a>
+                <div class="relative group">
+                    <a href="#"
+                        class="nav-item flex items-center justify-between hover:bg-slate-100 transition-all w-full">
+                        <div class="flex items-center">
+                            <span class="mr-3">📦</span> <span>RMA</span>
+                        </div>
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </a>
+                    <div
+                        class="absolute left-0 mt-1 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="newRma.html"
+                                class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                <span class="mr-3">➕</span> Submit New RMA </a>
+                            <hr class="border-slate-100 my-1">
+                            <a href="Rma.html"
+                                class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                                <span class="mr-3">📋</span> All RMAs </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="profile.html" class="nav-item">
+                    <span class="mr-3">👤</span> Edit Profile
+                </a>
+
+                <a href="Login.html" class="nav-item text-red-500">
+                    <span class="mr-3">🚪</span> Log out
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-white/95">
+            <div class="max-w-7xl mx-auto px-6 py-10">
+
+                <!-- Welcome Header -->
+                <div class="mb-10">
+                    <h1 class="text-3xl font-bold text-gray-900">Welcome back 👋</h1>
+                    <p class="mt-2 text-gray-600">Here's what's happening with your schedule today</p>
+                </div>
+
+                <!-- Dashboard Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 card-hover">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Total Hours</h3>
+                            <span class="text-indigo-500">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="text-4xl font-bold text-indigo-600">168 h</p>
+                        <p class="text-sm text-gray-500 mt-1">this month</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 card-hover">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Today's Schedule</h3>
+                            <span class="text-emerald-500">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">3 Shifts</p>
+                        <p class="text-sm text-gray-500 mt-1">12:00 – 20:00</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 card-hover">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Stores</h3>
+                            <span class="text-amber-500">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-4m-6 0H5" />
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="text-4xl font-bold text-amber-600">4</p>
+                        <p class="text-sm text-gray-500 mt-1">Active locations</p>
+                    </div>
+
+                    <!-- Card 4 (wider) -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 card-hover lg:col-span-3 md:col-span-2">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Weekly Schedule</h3>
+                            <span class="text-purple-500">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Monday – Friday: 09:00 – 18:00<br>
+                            Saturday: Off<br>
+                            Sunday: 10:00 – 16:00 (Store #2)
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
